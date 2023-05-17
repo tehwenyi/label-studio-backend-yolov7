@@ -12,10 +12,10 @@ git clone https://github.com/tehwenyi/label-studio-backend-yolov7.git
 cd label-studio-backend-yolov7/
 ```
 
-2. Copy your **YOLOv7 weights** (`.pt` file) into the `weights` folder and rename it to `weights.pt`.
+2. Copy your **YOLOv7 weights** (`.pt` file) into the `weights` folder (create it if it doesn't exist) and rename it to `weights.pt`.
 - Please make sure that your weights have been reparameterised and the state dictionary has been saved. Refer to this [link](https://github.com/DinoHub/yolov7_pipeline/tree/main#to-convert-weights-for-use-in-inference-branch) to find out how to reparameterise and save the state dictionary.
 
-3. Copy your **YOLOv7 deploy cfg** (eg. `deploy/cfg/yolov7.yaml`) into the `cfg` folder and rename it to `cfg.yaml`.
+3. Copy your **YOLOv7 deploy cfg** (eg. `deploy/cfg/yolov7.yaml`) into the `cfg` folder (create it if it doesn't exist) and rename it to `cfg.yaml`.
 
 4. Start running the backend with Docker Compose.
 ```bash
