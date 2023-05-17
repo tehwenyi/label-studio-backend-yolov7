@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: redis
+    hostname: redis
+    volumes:
+      - "./data/redis:/data"
+    expose:
+      - 6379
+    networks:
+      - ls_network
+  server:
+    container_name: server
+    build: .
+    environment:
+      - MODEL_DIR=/data/models
+      - RQ_QUEUE_NAME=default
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - LABEL_STUDIO_USE_REDIS=true
+    ports:
+      - 9090:9090
+    depends_on:
+      - redis
+    links:
+      - redis
+    volumes:
+      - "./data/server:/data"
+      - "./logs:/tmp"
+    networks:
+      - ls_network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+networks:
+  ls_network:
+    name: label-studio
+    driver: bridge

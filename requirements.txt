@@ -1,0 +1,22 @@
+attr==0.3.1
+attrs>=19.2.0
+appdirs>=1.4.3
+colorama>=0.4.4
+lxml>=4.2.5
+Pillow
+requests>=2.22.0,<3
+label-studio-tools>=0.0.0.dev11
+Jinja2==3.0.3
+itsdangerous==2.0.1
+werkzeug==2.0.2
+redis<4.6.0
+rq<1.14
+gunicorn==20.1.0
+label-studio-ml>=1.0.8
+# requirement for YOLOv7
+matplotlib>=3.2.2
+numpy>=1.18.5
+opencv-python>=4.1.1
+PyYAML>=5.3.1
+torch>=1.7.0,!=1.12.0
+torchvision>=0.8.1,!=0.13.0
